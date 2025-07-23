@@ -10,7 +10,7 @@ buildscript {
         springBeansVersion = '5.3.34'
         gatlingVersion = '3.9.2'
         scalaLibraryVersion = '2.13.12'
-        Junit5version = '5.11.0'
+        junit5version = '5.11.0'
     }
 }
 
@@ -58,7 +58,7 @@ dependencies {
     testImplementation "io.cucumber:cucumber-junit:${cucumberJunitVersion}"
 
     // Junit 5 dependencies
-    testImplementation platform ("org.junit:junit-bom:${Junit5version}")
+    testImplementation platform ("org.junit:junit-bom:${junit5version}")
     testImplementation "org.junit.jupiter:junit-jupiter"
 }
 
