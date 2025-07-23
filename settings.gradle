@@ -1,2 +1,6 @@
 rootProject.name = 'JUnitPracticeProject'
 
+include 'EmployeeAPI'
+include 'TicketBookingAPI'
+include 'UnitTesting'
+
