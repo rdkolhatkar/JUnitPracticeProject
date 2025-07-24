@@ -12,6 +12,13 @@ class CalculatorTest {
         int b = 30;
         Calculator calculator = new Calculator();
         int result = calculator.add(a, b);
-        assertEquals(result, 50);
+        assertEquals(50, result);
+    }
+    @Test
+    public void factorialTest() {
+        int a = 5;
+        Calculator calculator = new Calculator();
+        int result = calculator.factorial(a);
+        assertEquals(120, result);
     }
 }
