@@ -32,6 +32,7 @@ public class StudentServiceTest {
         listOfStudents.add(students);
         boolean actualResult = listOfStudents.isEmpty();
         assertFalse(actualResult);
-
+        assertFalse(() -> actualResult);
+        assertFalse(actualResult, () -> "Student list should not be empty");
     }
 }
