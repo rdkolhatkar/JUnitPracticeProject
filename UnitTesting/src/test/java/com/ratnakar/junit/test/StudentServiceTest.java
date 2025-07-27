@@ -30,9 +30,21 @@ public class StudentServiceTest {
         StudentService studentService = new StudentService();
         List<Students> listOfStudents = studentService.getStudents();
         listOfStudents.add(students);
+        // studentService.addStudentDetails(students);
         boolean actualResult = listOfStudents.isEmpty();
         assertFalse(actualResult);
         assertFalse(() -> actualResult);
         assertFalse(actualResult, () -> "Student list should not be empty");
+    }
+
+    @Test
+    public void getStudentByIdTest(){
+        StudentService studentService = new StudentService();
+        Students students = new Students(1, "Ramesh");
+        studentService.addStudentDetails(students);
+        Students actualObject = studentService.getStudentById(5);
+        assertNull(actualObject); // It verifies that if actual object is null or not
+        assertNull(actualObject, "Student object is not null");
+        assertNull(actualObject, () -> "Student object is not null");
     }
 }
