@@ -47,4 +47,15 @@ public class StudentServiceTest {
         assertNull(actualObject, "Student object is not null");
         assertNull(actualObject, () -> "Student object is not null");
     }
+
+    @Test
+    public void getStudentByIdValueTest(){
+        StudentService studentService = new StudentService();
+        Students students = new Students(1, "Ramesh");
+        studentService.addStudentDetails(students);
+        Students actualObject = studentService.getStudentById(1);
+        assertNotNull(actualObject);
+        assertNotNull(actualObject, "Student Object is null");
+        assertNotNull(actualObject, () -> "Student object is null");
+    }
 }
