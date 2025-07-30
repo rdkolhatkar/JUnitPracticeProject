@@ -58,4 +58,17 @@ public class StudentServiceTest {
         assertNotNull(actualObject, "Student Object is null");
         assertNotNull(actualObject, () -> "Student object is null");
     }
+
+    @Test
+    public void compareStudentByIdValues(){
+        StudentService studentService = new StudentService();
+        Students students = new Students(1, "Ramesh");
+        studentService.addStudentDetails(students);
+        Students actualObject = studentService.getStudentById(1);
+        assertEquals(1, actualObject.getId());
+        assertEquals("Ramesh", actualObject.getName());
+        assertEquals(students, actualObject);
+        assertEquals(1, actualObject.getId(), "Student Id is not matching with expected value");
+        assertEquals("Ramesh", actualObject.getName(), () -> "Student name is not matching with expected value");
+    }
 }
