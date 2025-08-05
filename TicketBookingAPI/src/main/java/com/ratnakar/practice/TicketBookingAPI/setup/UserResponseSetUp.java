@@ -23,11 +23,18 @@ public class UserResponseSetUp {
 
     public ResponseEntity<UserResponse> userRegistrationResponse(User user) {
         UserResponse userResponse = new UserResponse(); // create new instance each time
+        User savedUser = userRepository.save(user);
         String uniqueName = user.getUserName();
+        String uniqueId = user.getUserID();
+        String uniqueFirstName = user.getFirstName();
+        String uniqueLastName = user.getLastName();
         if (!userRegistrationService.checkUserAlreadyExists(uniqueName)) {
-            userRepository.save(user);
             userResponse.setMsg("New User Added Successfully");
             userResponse.setUserName(uniqueName);
+            savedUser.getUserID();
+            userResponse.setUserID(uniqueId);
+            userResponse.setFirstName(uniqueFirstName);
+            userResponse.setLastName(uniqueLastName);
             return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
         } else {
             userResponse.setMsg("UserName Already Exists, Please Enter Unique UserName");
