@@ -2,6 +2,7 @@ package com.ratnakar.junit.practice;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StudentService {
 
@@ -17,5 +18,29 @@ public class StudentService {
         return students.stream().filter((students) -> students.getId() == studentId)
                 .findFirst()
                 .orElse(null);
+    }
+
+    public String[] getStudentNamesByDepartments(String department){
+        return students.stream().filter((student) -> student.getDepartment().equals(department))
+                .map(Students::getName)
+                .toArray(String[]::new);
+    }
+
+    public Integer[] getStudentIdByDepartments(String department){
+        return students.stream().filter((student) -> student.getDepartment().equals(department))
+                .map(Students::getId)
+                .toArray(Integer[]::new);
+    }
+
+    public List<String> getStudentNamesListByDepartments(String department){
+        return students.stream().filter((student) -> student.getDepartment().equals(department))
+                .map(Students::getName)
+                .collect(Collectors.toList());
+    }
+
+    public List<Integer> getStudentIdListByDepartments(String department){
+        return students.stream().filter((student) -> student.getDepartment().equals(department))
+                .map(Students::getId)
+                .collect(Collectors.toList());
     }
 }
