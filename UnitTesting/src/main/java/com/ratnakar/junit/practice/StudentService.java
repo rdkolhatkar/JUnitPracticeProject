@@ -43,4 +43,10 @@ public class StudentService {
                 .map(Students::getId)
                 .collect(Collectors.toList());
     }
+
+    public Students getStudentByName(String name) throws StudentException {
+        return students.stream().filter((student) -> student.getName().equals(name))
+                .findFirst()
+                .orElseThrow(() -> new StudentException("Student not found with name: " + name));
+    }
 }

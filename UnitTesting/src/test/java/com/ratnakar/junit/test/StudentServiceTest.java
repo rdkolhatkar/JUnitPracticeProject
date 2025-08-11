@@ -1,5 +1,6 @@
 package com.ratnakar.junit.test;
 
+import com.ratnakar.junit.practice.StudentException;
 import com.ratnakar.junit.practice.StudentService;
 import com.ratnakar.junit.practice.Students;
 import org.junit.jupiter.api.Test;
@@ -228,5 +229,21 @@ public class StudentServiceTest {
         assertIterableEquals(expectedIdsList, actualIdsList);
         assertIterableEquals(expectedIdsList, actualIdsList, "Student Ids list is not matching with expected values");
         assertIterableEquals(expectedIdsList, actualIdsList, () -> "Student Ids list is not matching with expected values");
+    }
+
+    @Test
+    public void getStudentByNameExceptionTest() {
+        StudentService studentService = new StudentService();
+        Students students = new Students(1, "Ramesh", "Science");
+        studentService.addStudentDetails(students);
+        assertThrows(StudentException.class, () -> {
+            studentService.getStudentByName("Suresh");
+        }, "Expected StudentException to be thrown when student not found by name");
+        assertThrows(StudentException.class, () -> {
+            studentService.getStudentByName("Suresh");
+        }, () -> "Expected StudentException to be thrown when student not found by name");
+        assertThrows(Exception.class, () -> {
+            studentService.getStudentByName("Suresh");
+        }, () -> "Expected StudentException to be thrown when student not found by name");
     }
 }
