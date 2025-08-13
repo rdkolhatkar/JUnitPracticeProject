@@ -246,4 +246,22 @@ public class StudentServiceTest {
             studentService.getStudentByName("Suresh");
         }, () -> "Expected StudentException to be thrown when student not found by name");
     }
+
+    @Test
+    public void getStudentNameExceptionTest() {
+        StudentService studentService = new StudentService();
+        Students students = new Students(1, "Ramesh", "Science");
+        studentService.addStudentDetails(students);
+        assertThrowsExactly(StudentException.class, () -> {
+            studentService.getStudentByName("Suresh");
+        }, "Expected StudentException to be thrown when student not found by name");
+        assertThrowsExactly(StudentException.class, () -> {
+            studentService.getStudentByName("Suresh");
+        }, () -> "Expected StudentException to be thrown when student not found by name");
+        StudentException exception = assertThrowsExactly(StudentException.class, () -> {
+            studentService.getStudentByName("Suresh");
+        });
+        assertEquals("Student not found with name: Suresh", exception.getMessage());
+        // Note: for assertThrowsExactly, the exception type must match exactly.
+    }
 }
