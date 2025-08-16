@@ -60,4 +60,11 @@ public class Calculator {
     public int absolute(int number) {
         return Math.abs(number);
     }
+
+    public int negate(int number) {
+        // Negate logic
+        // Negation of a number is simply changing its sign.
+        // If the number is positive, it becomes negative, and vice versa.
+        return -number;
+    }
 }

@@ -1,6 +1,7 @@
 package com.ratnakar.junit.test;
 
 import com.ratnakar.junit.practice.Calculator;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Calculator Operations Test Suite")
 public class CalculatorTest {
 
+    // @DisplayName -> This annotation is used to provide a custom name for the test method in the output
+    // @Disabled -> This annotation is used to disable a test method, so it won't be executed
     @DisplayName("Test Addition Method")
     @Test
     public void addTest() {
@@ -86,6 +89,15 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         int result = calculator.absolute(number);
         assertEquals(10, result);
+    }
+
+    @Disabled("Negate method is not implemented yet")
+    @Test
+    public void negateTest() {
+        int number = 10;
+        Calculator calculator = new Calculator();
+        int result = calculator.negate(number);
+        assertEquals(-10, result);
     }
 
 
