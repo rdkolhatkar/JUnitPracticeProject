@@ -1,6 +1,7 @@
 package com.ratnakar.junit.test;
 
 import com.ratnakar.junit.practice.Calculator;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,11 @@ public class AnnotationTest {
     public void calculatorSetUp(){
         calculator = new Calculator();
         System.out.println("Calling calculatorSetUp method Before each test");
+    }
+    @AfterEach // @AfterEach in JUnit is used to define a method that runs after each test to perform cleanup or reset resources.
+    public void tearDown(){
+        calculator = null;
+        System.out.println("Calling the tearDown Method");
     }
 
     @DisplayName("Test Addition Method")
