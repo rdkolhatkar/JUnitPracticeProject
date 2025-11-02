@@ -1,16 +1,24 @@
 package com.ratnakar.junit.test;
 
 import com.ratnakar.junit.practice.Calculator;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AnnotationTest {
     // Now here we have created the Calculator class Instance in each and every test case, So here we will create the Generalized method which will run before every test
     public Calculator calculator;
+
+    @BeforeAll // @BeforeAll annotation is used to execute a method once before all test methods in a class, and it is applicable only at the class level, not project level.
+    public static void setUpBeforeClass(){
+        System.out.println("This method will execute before all test methods in a class");
+    }
+
+    @AfterAll // @AfterAll annotation is used to execute a method once after all test methods in a class, and it is applicable only at the class level, not project level.
+    public static void setUpAfterClass(){
+        System.out.println("This method will execute after all test methods in a class");
+    }
+
     @BeforeEach // @BeforeEach runs before each test method to set up test data or initialize resources, ensuring a fresh state for every test execution in the JUnit test class.
     public void calculatorSetUp(){
         calculator = new Calculator();
