@@ -31,7 +31,7 @@ public class AnnotationTest {
     }
 
     @DisplayName("Test Addition Method")
-    @Test
+    @RepeatedTest(value = 5, name = RepeatedTest.LONG_DISPLAY_NAME) // The @RepeatedTest annotation in JUnit is used to run the same test multiple times in a row to verify consistent behavior and reliability. This method will run for 5 times
     public void addTest() {
         int a = 20;
         int b = 30;
