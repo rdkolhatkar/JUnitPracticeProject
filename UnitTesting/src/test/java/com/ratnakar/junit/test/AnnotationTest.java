@@ -30,6 +30,45 @@ public class AnnotationTest {
         System.out.println("Calling the tearDown Method");
     }
 
+    /*
+    @Nested can be used only on non-static inner classes, and the outer test class must be non-final.
+    Each nested class can have its own lifecycle methods, but @BeforeAll and @AfterAll must be static unless the nested test class uses the per-class lifecycle mode.
+    Use it to group logically related tests.
+    */
+    @Nested //@Nested in JUnit is used to group related test cases inside an inner class to improve test structure and readability.
+    class AdditionalTest {
+        @Test
+        public void addPositiveNumberTest(){
+            assertEquals(7, calculator.add(3, 4));
+        }
+        @Test
+        public void addPositiveAndNegativeNumberTest(){
+            assertEquals(1, calculator.add(-3, 4));
+        }
+        @Nested
+        class NestedClassInsideAnotherNestedClass {
+            @Test
+            public void multiplicationTest(){
+                assertEquals(2, calculator.multiply(2, 1));
+            }
+            @Test
+            public void multiplyNegativeNumbers(){
+                assertEquals(16, calculator.multiply(-2, -8));
+            }
+        }
+    }
+    @Nested
+    class SubstractionTest {
+        @Test
+        public void subtractPositiveNumberTest(){
+            assertEquals(1, calculator.subtract(4, 3));
+        }
+        @Test
+        public void subtractNumberTest(){
+            assertEquals(-1, calculator.subtract(-4, -3));
+        }
+    }
+
     @DisplayName("Test Addition Method")
     @RepeatedTest(value = 5, name = RepeatedTest.LONG_DISPLAY_NAME) // The @RepeatedTest annotation in JUnit is used to run the same test multiple times in a row to verify consistent behavior and reliability. This method will run for 5 times
     public void addTest() {
