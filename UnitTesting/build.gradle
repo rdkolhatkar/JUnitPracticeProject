@@ -11,6 +11,7 @@ buildscript {
         gatlingVersion = '3.9.2'
         scalaLibraryVersion = '2.13.12'
         junit5version = '5.11.0'
+        junitPlatformSuiteEngine = '1.13.4'
     }
 }
 
@@ -60,6 +61,8 @@ dependencies {
     // Junit 5 dependencies
     testImplementation platform ("org.junit:junit-bom:${junit5version}")
     testImplementation "org.junit.jupiter:junit-jupiter"
+    // Junit Suite Engine
+    testImplementation("org.junit.platform:junit-platform-suite-engine:${junitPlatformSuiteEngine}")
 }
 
 test {
