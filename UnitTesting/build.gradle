@@ -12,6 +12,7 @@ buildscript {
         scalaLibraryVersion = '2.13.12'
         junit5version = '5.11.0'
         junitPlatformSuiteEngine = '1.13.4'
+        junitJupiterParams = '6.0.2'
     }
 }
 
@@ -63,6 +64,8 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter"
     // Junit Suite Engine
     testImplementation("org.junit.platform:junit-platform-suite-engine:${junitPlatformSuiteEngine}")
+    // Junit Jupiter Params
+    testImplementation("org.junit.jupiter:junit-jupiter-params:${junitJupiterParams}")
 }
 
 test {
