@@ -1,25 +1,5 @@
-buildscript {
-    ext {
-        serenityCoreVersion = '3.1.15'
-        serenityCucumberVersion = '3.1.15'
-        cucumberVersion = '7.15.0'
-        cucumberJunitVersion = '7.15.0'
-        junitVersion = '4.13.1'
-        restAssuredVersion = '5.4.0'
-        springBootVersion = '3.5.3'
-        springBeansVersion = '5.3.34'
-        gatlingVersion = '3.9.2'
-        scalaLibraryVersion = '2.13.12'
-        junit5version = '5.11.0'
-        junitPlatformSuiteEngine = '1.13.4'
-        junitJupiterParams = '6.0.2'
-    }
-}
-
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.2.2'
-    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'org.ratnakar.junit.practice'
@@ -27,46 +7,18 @@ version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-    maven {
-        url = uri("https://mvnrepository.com")
-    }
-    mavenLocal()
-    flatDir {
-        dirs "libs"
-    }
 }
 
 dependencies {
-    // Spring Boot Dependencies
 
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.mysql:mysql-connector-j:8.3.0'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.h2database:h2'
-    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation platform("org.junit:junit-bom:5.11.0")
 
-    // Spring Dependencies
-    implementation ("org.springframework.boot:spring-boot:${springBootVersion}")
-
-    // Junit and Component testing dependencies
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation ("junit:junit:${junitVersion}")
-
-    // Serenity and BDD dependencies
-    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}"
-    testImplementation "net.serenity-bdd:serenity-reports:${serenityCoreVersion}"
-    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
-    testImplementation "io.cucumber:cucumber-junit:${cucumberJunitVersion}"
-
-    // Junit 5 dependencies
-    testImplementation platform ("org.junit:junit-bom:${junit5version}")
     testImplementation "org.junit.jupiter:junit-jupiter"
-    // Junit Suite Engine
-    testImplementation("org.junit.platform:junit-platform-suite-engine:${junitPlatformSuiteEngine}")
-    // Junit Jupiter Params
-    testImplementation("org.junit.jupiter:junit-jupiter-params:${junitJupiterParams}")
+    testImplementation "org.junit.jupiter:junit-jupiter-params"
+
+    testImplementation "org.junit.platform:junit-platform-suite-api"
 }
+
 
 test {
     useJUnitPlatform()
