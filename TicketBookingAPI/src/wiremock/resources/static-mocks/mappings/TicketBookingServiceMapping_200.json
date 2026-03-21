@@ -1,0 +1,14 @@
+{
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "url": "/api/users/register"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "TicketBookingResponse_200.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
