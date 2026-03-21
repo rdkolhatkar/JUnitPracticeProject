@@ -1,6 +1,0 @@
-{
-  "error": "Service Unavailable",
-  "errorCode": 500,
-  "errorText": "Internal Server Error",
-  "path": "/user/register"
-}
