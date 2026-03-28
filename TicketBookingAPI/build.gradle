@@ -8,7 +8,7 @@ buildscript {
 		restAssuredVersion = '5.4.0'
 		springBeansVersion = '5.3.34'
 		gatlingVersion = '3.9.2'
-		scalaLibraryVersion = '2.13.12'
+		scalaLibraryVersion = '3.7.4'
 		lombokVersion = '1.18.30'
         wireMockVersion = '3.10.0'
         wireMockStandaloneVersion = '3.0.1'
@@ -97,6 +97,8 @@ dependencies {
 	// runtimeOnly 'com.h2database:h2'
 	annotationProcessor "org.projectlombok:lombok"
 	implementation "org.projectlombok:lombok:${lombokVersion}"
+	// Scala
+	implementation("org.scala-lang:scala3-library_3:${scalaLibraryVersion}")
 	// Wiremock-standalone
 	implementation "org.wiremock:wiremock-standalone:${wireMockStandaloneVersion}"
 	// Junit and Component testing dependencies
